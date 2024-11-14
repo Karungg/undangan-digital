@@ -1,6 +1,7 @@
 <x-layouts.app>
     {{-- Hero --}}
-    <div class="hero min-h-screen bg-cover bg-center" style="background-image: url('{{ asset('assets/img/4.jpeg') }}')">
+    <div id="hero" class="hero min-h-screen bg-cover bg-center"
+        style="background-image: url('{{ asset('assets/img/4.jpeg') }}')">
         <div class="hero-overlay"></div>
         <div class="hero-content text-neutral-content text-center">
             <div class="hero-title text-white max-w-md">
@@ -41,7 +42,7 @@
     {{-- End Hero --}}
 
     {{-- Quran Card --}}
-    <div class="container max-w-5xl mx-auto flex flex-col my-12 items-center justify-center space-y-12">
+    <div id="quran" class="container max-w-5xl mx-auto flex flex-col my-12 items-center justify-center space-y-12">
         <h1 class="text-2xl font-extralight">Bismillahirrahmanirrahim</h1>
         <div class="card bg-neutral max-w-80 sm:max-w-96 lg:w-96 shadow-xl">
             <div class="card-body">
@@ -336,7 +337,7 @@
         <p class="mb-5 text-center">
             Kirimkan ucapan dan doa untuk kedua mempelai
         </p>
-        <div class="max-w-80 sm:max-w-96 lg:w-96 mx-auto">
+        <div class="max-w-80 sm:max-w-96 lg:w-96">
             <label class="form-control w-full">
                 <div class="label">
                     <span class="label-text">Nama</span>
@@ -361,7 +362,7 @@
             <button class="btn w-full mt-4">Kirim</button>
         </div>
 
-        <div class="max-w-80 sm:max-w-96 lg:w-96 mx-auto">
+        <div class="w-80 sm:w-96 lg:w-96">
             <div class="chat chat-start">
                 <div class="chat-header">
                     Miftah Fadilah
@@ -380,7 +381,15 @@
             </div>
         </div>
 
-        <div class="card bg-neutral text-neutral-content w-96">
+        <div class="w-80 sm:w-96 lg:w-96 flex justify-center">
+            <div class="join">
+                <button class="join-item btn">«</button>
+                <button class="join-item btn">Page 22</button>
+                <button class="join-item btn">»</button>
+            </div>
+        </div>
+
+        <div class="card bg-neutral text-neutral-content max-w-80 sm:max-w-96 lg:w-96">
             <div class="card-body items-center text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-6">
@@ -399,43 +408,14 @@
     {{-- End Comment --}}
 
     {{-- Footer --}}
-    <footer class="footer footer-center bg-primary text-primary-content p-10">
+    <footer class="footer footer-center bg-primary text-primary-content p-10 mb-5">
         <aside>
             <p class="font-bold">
-                ACME Industries Ltd.
-                <br />
-                Providing reliable tech since 1992
+                Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan
+                memberikan do’a restu kepada Kami.
             </p>
-            <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+            <p>Kami Yang Berbahagia <br> Indi & Astri</p>
         </aside>
-        <nav>
-            <div class="grid grid-flow-col gap-4">
-                <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
-                        </path>
-                    </svg>
-                </a>
-                <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
-                        </path>
-                    </svg>
-                </a>
-                <a>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        class="fill-current">
-                        <path
-                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
-                        </path>
-                    </svg>
-                </a>
-            </div>
-        </nav>
     </footer>
     {{-- End Footer --}}
 </x-layouts.app>
