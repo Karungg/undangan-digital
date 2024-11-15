@@ -1,4 +1,50 @@
 <x-layouts.app>
+
+
+    <div class="fixed bottom-14 right-4 z-10 flex flex-col space-y-2">
+        <label class="swap swap-rotate py-2 px-2 bg-neutral rounded-full">
+            <!-- this hidden checkbox controls the state -->
+            <input type="checkbox" value="pastel" class="theme-controller" />
+
+            <!-- sun icon -->
+            <svg class="swap-on h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+            </svg>
+
+            <!-- moon icon -->
+            <svg class="swap-off h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                    d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+            </svg>
+        </label>
+
+        <div x-data="{ playing: true }" x-init="$refs.audio.play()">
+            <audio x-ref="audio" src="{{ asset('assets/music/music.mp4') }}" loop></audio>
+
+            <label class="swap py-2 px-2 bg-neutral rounded-full">
+                <!-- this hidden checkbox controls the state -->
+                <input type="checkbox"
+                    @click="playing = !playing; playing ? $refs.audio.play() : $refs.audio.pause()" />
+
+                <!-- volume on icon -->
+                <svg x-show="playing" x-transition class="fill-current" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z" />
+                </svg>
+
+                <!-- volume off icon -->
+                <svg x-show="!playing" x-transition class="fill-current" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M3,9H7L12,4V20L7,15H3V9M16.59,12L14,9.41L15.41,8L18,10.59L20.59,8L22,9.41L19.41,12L22,14.59L20.59,16L18,13.41L15.41,16L14,14.59L16.59,12Z" />
+                </svg>
+            </label>
+        </div>
+    </div>
+
+
     {{-- Hero --}}
     <div id="hero" class="hero min-h-screen bg-cover bg-center"
         style="background-image: url('{{ asset('assets/img/4.jpeg') }}')">
@@ -300,31 +346,19 @@
         <p class="mb-5 text-center">
             Kepada tamu undangan diharapkan untuk mengisi form kehadiran dibawah ini
         </p>
+
+        <div role="alert" class="alert max-w-80 sm:max-w-96 lg:w-96" x-data="{ show: false }" x-show="show"
+            x-on:rsvp-created.window="show = true; setTimeout(() => show = false, 3000)" x-transition.duration.500ms>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                class="stroke-info h-6 w-6 shrink-0">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>Form Berhasil Dikirim.</span>
+        </div>
+
         <div class="card bg-neutral max-w-80 sm:max-w-96 lg:w-96 shadow-xl">
-            <div class="card-body">
-                <label class="form-control w-full max-w-xs">
-                    <div class="label">
-                        <span class="label-text">Nama</span>
-                    </div>
-                    <input type="text" placeholder="Nama" class="input input-bordered w-full max-w-xs" />
-                </label>
-                <label class="form-control w-full max-w-xs">
-                    <div class="label">
-                        <span class="label-text">Jumlah</span>
-                    </div>
-                    <input type="text" placeholder="Jumlah" class="input input-bordered w-full max-w-xs" />
-                </label>
-                <label class="form-control w-full max-w-xs">
-                    <div class="label">
-                        <span class="label-text">Konfirmasi</span>
-                    </div>
-                    <select class="select select-bordered">
-                        <option>Saya Akan Datang</option>
-                        <option>Maaf, saya tidak bisa datang</option>
-                    </select>
-                </label>
-                <button class="btn w-full mt-4">Kirim</button>
-            </div>
+            <livewire:create-rsvp />
         </div>
 
     </div>
@@ -338,55 +372,11 @@
             Kirimkan ucapan dan doa untuk kedua mempelai
         </p>
         <div class="max-w-80 sm:max-w-96 lg:w-96">
-            <label class="form-control w-full">
-                <div class="label">
-                    <span class="label-text">Nama</span>
-                </div>
-                <input type="text" placeholder="Nama" class="input input-bordered w-full" />
-            </label>
-            <label class="form-control w-full">
-                <div class="label">
-                    <span class="label-text">Ucapan</span>
-                </div>
-                <input type="text" placeholder="Ucapan" class="input input-bordered w-full" />
-            </label>
-            <label class="form-control w-full">
-                <div class="label">
-                    <span class="label-text">Konfirmasi</span>
-                </div>
-                <select class="select select-bordered">
-                    <option>Hadir</option>
-                    <option>Tidak Hadir</option>
-                </select>
-            </label>
-            <button class="btn w-full mt-4">Kirim</button>
+            <livewire:create-comment />
         </div>
 
         <div class="w-80 sm:w-96 lg:w-96">
-            <div class="chat chat-start">
-                <div class="chat-header">
-                    Miftah Fadilah
-                    <time class="text-xs opacity-50">2 hours ago</time>
-                </div>
-                <div class="chat-bubble">Test 1</div>
-                <div class="chat-footer opacity-50">Seen</div>
-            </div>
-            <div class="chat chat-start">
-                <div class="chat-header">
-                    Karung
-                    <time class="text-xs opacity-50">2 hour ago</time>
-                </div>
-                <div class="chat-bubble">Test 2</div>
-                <div class="chat-footer opacity-50">Delivered</div>
-            </div>
-        </div>
-
-        <div class="w-80 sm:w-96 lg:w-96 flex justify-center">
-            <div class="join">
-                <button class="join-item btn">«</button>
-                <button class="join-item btn">Page 22</button>
-                <button class="join-item btn">»</button>
-            </div>
+            <livewire:show-comment />
         </div>
 
         <div class="card bg-neutral text-neutral-content max-w-80 sm:max-w-96 lg:w-96">

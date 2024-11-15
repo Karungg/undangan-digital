@@ -102,7 +102,7 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <script>
+    {{-- <script>
         ScrollReveal().reveal('#hero', {
             duration: 1200,
             origin: 'bottom',
@@ -140,7 +140,7 @@
             delay: 600,
             reset: true
         })
-    </script>
+    </script> --}}
 </body>
 
 </html>
