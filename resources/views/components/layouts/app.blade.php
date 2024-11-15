@@ -109,43 +109,87 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <script>
+        // Menggunakan ScrollReveal untuk memberikan efek animasi saat scroll
         ScrollReveal().reveal('#hero', {
-            duration: 1200,
-            origin: 'bottom',
-            opacity: 0,
-            scale: 0.85,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)',
-            reset: true
-        })
-        ScrollReveal().reveal('#quran', {
-            duration: 1500,
-            origin: 'left',
-            opacity: 0,
-            easing: 'ease-in-out',
             delay: 200,
-            reset: true
-        })
-        ScrollReveal().reveal('#couple', {
-            duration: 1500,
-            origin: 'right',
-            opacity: 0,
-            easing: 'ease-in-out',
-            delay: 400,
-            reset: true
-        })
-        ScrollReveal().reveal('#event', {
-            duration: 1600,
             origin: 'top',
-            rotate: {
-                x: 30,
-                z: 30
-            },
+            distance: '50px',
+            duration: 1000,
+            reset: true,
             opacity: 0,
-            scale: 0.9,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+        });
+
+        ScrollReveal().reveal('#quran', {
+            delay: 400,
+            origin: 'bottom',
+            distance: '100px',
+            duration: 1200,
+            reset: true,
+            opacity: 0,
+        });
+
+        ScrollReveal().reveal('#couple', {
             delay: 600,
-            reset: true
-        })
+            origin: 'right',
+            distance: '80px',
+            duration: 1400,
+            reset: true,
+            opacity: 0,
+        });
+
+        ScrollReveal().reveal('#event', {
+            delay: 600,
+            origin: 'left',
+            distance: '80px',
+            duration: 1600,
+            reset: true,
+            opacity: 0,
+        });
+
+        ScrollReveal().reveal('#gallery', {
+            delay: 600,
+            origin: 'bottom',
+            distance: '100px',
+            duration: 1800,
+            reset: true,
+            opacity: 0,
+        });
+
+        ScrollReveal().reveal('#gift', {
+            delay: 600,
+            origin: 'top',
+            distance: '50px',
+            duration: 2000,
+            reset: true,
+            opacity: 0,
+        });
+
+        ScrollReveal().reveal('#rsvp', {
+            delay: 600,
+            origin: 'right',
+            distance: '80px',
+            duration: 2200,
+            reset: true,
+            opacity: 0,
+        });
+
+        ScrollReveal().reveal('#comment', {
+            delay: 600,
+            origin: 'left',
+            distance: '80px',
+            duration: 2400,
+            reset: true,
+            opacity: 0,
+        });
+
+        ScrollReveal().reveal('#footer', {
+            delay: 600,
+            origin: 'bottom',
+            distance: '100px',
+            duration: 2600,
+            reset: true,
+            opacity: 0,
+        });
     </script>
 </body>
 

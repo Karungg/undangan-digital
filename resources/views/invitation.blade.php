@@ -19,8 +19,8 @@
             </svg>
         </label>
 
-        <div x-data="{ playing: false }" x-init="$refs.audio.play()">
-            {{-- <audio x-ref="audio" src="{{ asset('assets/music/music.mp4') }}" loop></audio> --}}
+        <div x-data="{ playing: true }" x-init="$refs.audio.play()">
+            <audio x-ref="audio" src="{{ asset('assets/music/music.mp4') }}" loop></audio>
 
             <label class="swap py-2 px-2 bg-neutral rounded-full">
                 <!-- this hidden checkbox controls the state -->
@@ -119,7 +119,7 @@
         </p>
         <div class="card bg-neutral max-w-80 sm:max-w-96 lg:w-96 shadow-xl py-12 rounded-t-[200px]">
             <div class="card-body">
-                <h2 class="card-title justify-center text-primary">Akad Nikah</h2>
+                <h2 class="card-title justify-center text-4xl card-1-title text-primary">Akad Nikah</h2>
                 <div class="divider">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-20">
@@ -158,7 +158,7 @@
         </div>
         <div class="card bg-neutral max-w-80 sm:max-w-96 lg:w-96 shadow-xl py-12 rounded-b-[200px]">
             <div class="card-body">
-                <h2 class="card-title justify-center text-primary">Resepsi</h2>
+                <h2 class="card-title justify-center text-4xl card-1-title text-primary">Resepsi</h2>
                 <div class="divider">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-20">
@@ -208,7 +208,8 @@
                     <div>
                         <img @click="open = true; imageUrl = '{{ asset('assets/img/' . ($i + 1) . '.jpeg') }}'"
                             class="cursor-pointer h-auto max-w-full rounded-lg"
-                            src="{{ asset('assets/img/' . ($i + 1) . '.jpeg') }}" alt="Gallery image" />
+                            src="{{ asset('assets/img/' . ($i + 1) . '.jpeg') }}" alt="Gallery image"
+                            loading="lazy" />
                     </div>
                 @endfor
             </div>
@@ -374,7 +375,7 @@
     {{-- End Comment --}}
 
     {{-- Footer --}}
-    <footer class="footer footer-center bg-primary text-primary-content p-10 min-h-80">
+    <footer id="footer" class="footer footer-center bg-primary text-primary-content p-10 min-h-80">
         <aside>
             <p class="font-bold">
                 Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir
