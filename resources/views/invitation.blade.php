@@ -1,6 +1,6 @@
 <x-layouts.app>
 
-
+    {{-- Bottom right button --}}
     <div class="fixed bottom-14 right-4 z-10 flex flex-col space-y-2">
         <label class="swap swap-rotate py-2 px-2 bg-neutral rounded-full">
             <!-- this hidden checkbox controls the state -->
@@ -19,8 +19,8 @@
             </svg>
         </label>
 
-        <div x-data="{ playing: true }" x-init="$refs.audio.play()">
-            <audio x-ref="audio" src="{{ asset('assets/music/music.mp4') }}" loop></audio>
+        <div x-data="{ playing: false }" x-init="$refs.audio.play()">
+            {{-- <audio x-ref="audio" src="{{ asset('assets/music/music.mp4') }}" loop></audio> --}}
 
             <label class="swap py-2 px-2 bg-neutral rounded-full">
                 <!-- this hidden checkbox controls the state -->
@@ -43,53 +43,15 @@
             </label>
         </div>
     </div>
-
+    {{-- End bottom right button --}}
 
     {{-- Hero --}}
-    <div id="hero" class="hero min-h-screen bg-cover bg-center"
-        style="background-image: url('{{ asset('assets/img/4.jpeg') }}')">
-        <div class="hero-overlay"></div>
-        <div class="hero-content text-neutral-content text-center">
-            <div class="hero-title text-white max-w-md">
-                <h1 class="mb-5 text-5xl font-bold">The Wedding Of</h1>
-                <h1 class="mb-5 text-5xl font-bold">Indi & Astri</h1>
-                <p class="mb-5">
-                    1 Desember 2024
-                </p>
-                <div class="grid auto-cols-max grid-flow-col gap-5 text-center">
-                    <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-                        <span class="countdown font-mono text-5xl">
-                            <span style="--value:10;"></span>
-                        </span>
-                        Hari
-                    </div>
-                    <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-                        <span class="countdown font-mono text-5xl">
-                            <span style="--value:0;"></span>
-                        </span>
-                        Jam
-                    </div>
-                    <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-                        <span class="countdown font-mono text-5xl">
-                            <span style="--value:24;"></span>
-                        </span>
-                        Menit
-                    </div>
-                    <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
-                        <span class="countdown font-mono text-5xl">
-                            <span style="--value:${counter};"></span>
-                        </span>
-                        Detik
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <livewire:count-down />
     {{-- End Hero --}}
 
     {{-- Quran Card --}}
     <div id="quran" class="container max-w-5xl mx-auto flex flex-col my-12 items-center justify-center space-y-12">
-        <h1 class="text-2xl font-extralight">Bismillahirrahmanirrahim</h1>
+        <h1 class="card-1-title text-2xl">Bismillahirrahmanirrahim</h1>
         <div class="card bg-neutral max-w-80 sm:max-w-96 lg:w-96 shadow-xl">
             <div class="card-body">
                 <h2 class="card-title justify-center text-primary">
@@ -100,12 +62,14 @@
                     </svg>
 
                 </h2>
-                <p class="text-3xl my-5">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا
+                <p class="text-3xl my-5">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا
+                    لِتَسْكُنُوا
                     إِلَيْهَا وَجَعَلَ
                     بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً إِنَّ فِي ذَلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ</p>
                 <p class="text-justify">"Dan Di Antara Tanda-Tanda (Kebesaran)-Nya Ialah Dia Menciptakan
                     Pasangan-Pasangan Untukmu Dari
-                    Jenismu Sendiri, Agar Kamu Cenderung Dan Merasa Tenteram Kepadanya, Dan Dia Menjadikan Di Antaramu
+                    Jenismu Sendiri, Agar Kamu Cenderung Dan Merasa Tenteram Kepadanya, Dan Dia Menjadikan Di
+                    Antaramu
                     Rasa Kasih Dan Sayang. Sesungguhnya Pada Yang Demikian Itu Benar-Benar Terdapat Tanda-Tanda
                     (Kebesaran Allah) Bagi Kaum Yang Berpikir." (Q.S Ar-Rum : 21)</p>
             </div>
@@ -115,7 +79,7 @@
 
     {{-- Wedding Couple Card --}}
     <div id="couple" class="container max-w-5xl mx-auto flex flex-col my-12 items-center justify-center space-y-12">
-        <h1 class="text-4xl text-center">Wedding <br> Couple</h1>
+        <h1 class="text-4xl text-center"><span class="card-1-title text-5xl text-primary">Wedding</span><br>Couple</h1>
         <p class="mb-5 text-center">
             Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta’ala, insyaaAllah kami akan menyelenggarakan acara
             pernikahan anak kami :
@@ -146,7 +110,8 @@
 
     {{-- Event Card --}}
     <div id="event" class="container max-w-5xl mx-auto flex flex-col my-12 items-center justify-center space-y-12">
-        <h1 class="text-4xl text-center mt-12">Wedding <br> Event</h1>
+        <h1 class="text-4xl text-center mt-12"><span class="card-1-title text-5xl text-primary">Wedding</span><br>Event
+        </h1>
         <p class="mb-5 text-center">
             Dengan segala kerendahan hati kami berharap kehadiran kehadiran Bapak/Ibu/Saudara/i dalam acara
             pernikahan
@@ -179,7 +144,7 @@
                 <p class="text-center">Bertempat di, <br> Kediaman Mempelai Wanita <br> Dramaga Gang Haji Burhan RT
                     01/RW 03 Kel. Margajaya kec. Bogor Barat</p>
 
-                <button class="btn max-w-screen mx-auto mt-5">
+                <a href="https://goo.gl/maps/PyHYvebKSAhterPh9" target="__blank" class="btn max-w-screen mx-auto mt-5">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -188,7 +153,7 @@
                             d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                     </svg>
                     Lihat Lokasi
-                </button>
+                </a>
             </div>
         </div>
         <div class="card bg-neutral max-w-80 sm:max-w-96 lg:w-96 shadow-xl py-12 rounded-b-[200px]">
@@ -217,7 +182,8 @@
                 </div>
                 <p class="text-center">Bertempat di, <br> Kediaman Mempelai Wanita <br> Dramaga Gang Haji Burhan RT
                     01/RW 03 Kel. Margajaya kec. Bogor Barat</p>
-                <button class="btn max-w-screen mx-auto mt-5">
+                <a href="https://goo.gl/maps/PyHYvebKSAhterPh9" target="__blank"
+                    class="btn max-w-screen mx-auto mt-5">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -226,7 +192,7 @@
                             d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                     </svg>
                     Lihat Lokasi
-                </button>
+                </a>
             </div>
         </div>
 
@@ -236,7 +202,7 @@
     {{-- Gallery --}}
     <div id="gallery" class="container max-w-80 sm:max-w-full mx-auto">
         <div x-data="{ open: false, imageUrl: '' }" class="container lg:w-full md:w-96 sm:w-full mx-auto">
-            <h1 class="mb-5 text-5xl text-center">Our Gallery</h1>
+            <h1 class="mb-7 text-5xl text-primary text-center card-1-title">Our Gallery</h1>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
                 @for ($i = 0; $i < 8; $i++)
                     <div>
@@ -266,9 +232,10 @@
     <div x-data="{ open: false }">
         <div id="gift"
             class="container max-w-5xl mx-auto flex flex-col my-12 items-center justify-center space-y-12">
-            <h1 class="text-4xl text-center mt-12">Kirim Hadiah</h1>
+            <h1 class="text-4xl text-center text-primary mt-12">Kirim Hadiah</h1>
             <p class="mb-5 text-center">
-                Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda
+                Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan
+                tanda
                 kasih Anda, Anda dapat memberi kado secara cashless.
             </p>
             <button @click="open = ! open" class="btn btn-neutral text-white">
@@ -291,46 +258,55 @@
                 <div class="display">
                     <div class="artboard artboard-demo phone-1">
                         <div class="w-full">
-                            <div class="card bg-white text-primary-content m-2">
-                                <div class="card-body">
-                                    <div class="flex justify-between">
-                                        <h2 class="card-title text-sm">Indi Sodikin</h2>
-                                        <img class="w-24" src="{{ asset('assets/img/bca.png') }}" alt="Logo BCA">
-                                    </div>
-                                    <p class="text-sm">6820723382</p>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn btn-sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                class="size-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z" />
-                                            </svg>
-                                            Copy No.Rek
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card bg-white text-primary-content m-2">
-                                <div class="card-body">
-                                    <div class="flex justify-between">
-                                        <h2 class="card-title text-sm">Astri Humairoh</h2>
-                                        <img class="w-24" src="{{ asset('assets/img/bca.png') }}" alt="Logo BCA">
-                                    </div>
-                                    <p class="text-sm">0954059321</p>
-                                    <div class="card-actions justify-end">
-                                        <button class="btn btn-sm">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                class="size-6">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z" />
-                                            </svg>
-                                            Copy No.Rek
-                                        </button>
+                            <div x-data="{ input: '6820723382', showMsg: false, buttonText: 'Copy No.Rek' }">
+                                <div class="card bg-white text-primary-content m-2">
+                                    <div class="card-body">
+                                        <div class="flex justify-between">
+                                            <h2 class="card-title text-sm">Indi Sodikin</h2>
+                                            <img class="w-24" src="{{ asset('assets/img/bca.png') }}"
+                                                alt="Logo BCA">
+                                        </div>
+                                        <p class="text-sm">6820723382</p>
+                                        <div class="card-actions justify-end">
+                                            <button type="button" class="btn btn-sm" x-transition
+                                                @click="navigator.clipboard.writeText(input), showMsg = true, buttonText = 'Copy berhasil', setTimeout(() => { showMsg = false; buttonText = 'Copy No.Rek'; }, 1000)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                    class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z" />
+                                                </svg>
+                                                <span x-text="buttonText"></span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div x-data="{ input: '0954059321', showMsg: false, buttonText: 'Copy No.Rek' }">
+                                <div class="card bg-white text-primary-content m-2">
+                                    <div class="card-body">
+                                        <div class="flex justify-between">
+                                            <h2 class="card-title text-sm">Astri Humairoh</h2>
+                                            <img class="w-24" src="{{ asset('assets/img/bca.png') }}"
+                                                alt="Logo BCA">
+                                        </div>
+                                        <p class="text-sm">0954059321</p>
+                                        <div class="card-actions justify-end">
+                                            <button type="button" class="btn btn-sm" x-transition
+                                                @click="navigator.clipboard.writeText(input), showMsg = true, buttonText = 'Copy berhasil', setTimeout(() => { showMsg = false; buttonText = 'Copy No.Rek'; }, 1000)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                                    class="size-6">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 6.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z" />
+                                                </svg>
+                                                <span x-text="buttonText"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -342,7 +318,7 @@
     {{-- RSVP --}}
     <div id="rsvp"
         class="container max-w-5xl mx-auto flex flex-col my-12 items-center justify-center space-y-12">
-        <h1 class="text-4xl text-center mt-12">RSVP</h1>
+        <h1 class="text-4xl text-center text-primary mt-12">RSVP</h1>
         <p class="mb-5 text-center">
             Kepada tamu undangan diharapkan untuk mengisi form kehadiran dibawah ini
         </p>
@@ -367,7 +343,7 @@
     {{-- Comment --}}
     <div id="comment"
         class="container max-w-5xl mx-auto flex flex-col my-12 items-center justify-center space-y-12">
-        <h1 class="text-4xl text-center mt-12">Ucapan & Doa</h1>
+        <h1 class="text-4xl text-center text-primary mt-12">Ucapan & Doa</h1>
         <p class="mb-5 text-center">
             Kirimkan ucapan dan doa untuk kedua mempelai
         </p>
@@ -398,10 +374,11 @@
     {{-- End Comment --}}
 
     {{-- Footer --}}
-    <footer class="footer footer-center bg-primary text-primary-content p-10 mb-5">
+    <footer class="footer footer-center bg-primary text-primary-content p-10 min-h-80">
         <aside>
             <p class="font-bold">
-                Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan
+                Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir
+                dan
                 memberikan do’a restu kepada Kami.
             </p>
             <p>Kami Yang Berbahagia <br> Indi & Astri</p>

@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Wedding Invitation</title>
+    <title>Indi - Astri Wedding Invitation</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
     <!-- Styles / Scripts -->
@@ -30,6 +30,12 @@
 
         .hero-title h1 {
             font-family: "Alex Brush", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .card-1-title {
+            font-family: "Pacifico", cursive;
             font-weight: 400;
             font-style: normal;
         }
@@ -102,7 +108,7 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    {{-- <script>
+    <script>
         ScrollReveal().reveal('#hero', {
             duration: 1200,
             origin: 'bottom',
@@ -140,7 +146,7 @@
             delay: 600,
             reset: true
         })
-    </script> --}}
+    </script>
 </body>
 
 </html>
