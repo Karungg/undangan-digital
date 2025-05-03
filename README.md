@@ -43,6 +43,7 @@ DB_PASSWORD=
 ```
 
 5. **Buat key aplikasi**
+
 ```
 php artisan key:generate
 ```
@@ -62,7 +63,7 @@ php artisan serve
 Buka aplikasi di browser <a href="http://localhost:8000">http://localhost:8000</a>
 
 👨‍💻 Developer
-Created with ❤️ by <a href="https://github.com/Karungg">Karungg</a>
+Created with love by <a href="https://github.com/Karungg">Karungg</a>
 
 ## 📄 Lisensi
 
